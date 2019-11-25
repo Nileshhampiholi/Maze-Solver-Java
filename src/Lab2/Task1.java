@@ -26,7 +26,7 @@ public static void  print()  {
 		x= x+1;
 		if (x > 5)
 			{ 
-			 for (int j = 0; j<5; j++)
+			 for (int j = 0; j<6; j++)
 				 {x= x-1;}
 			}
 	
