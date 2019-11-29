@@ -15,7 +15,7 @@ public class Task3_2 {
 		while(Button.ESCAPE.isUp())
 		{
 		distance = computeDistance(distanceSensor);
-		LCD.drawString("Distance="+ distance, 1,1);
+		LCD.drawString("Distance="+ distance+ "cm", 1,1);
 		Delay.msDelay(1000);
 		
 		if(Button.ESCAPE.isDown())
@@ -31,6 +31,7 @@ public class Task3_2 {
 		SampleProvider distance = distanceSensor.getDistanceMode();
 	    s = new float[distance.sampleSize()];
 	    distance.fetchSample(s, 0);
+	    s[0]= s[0]*100;
 	    return s[0];
 	    
 		

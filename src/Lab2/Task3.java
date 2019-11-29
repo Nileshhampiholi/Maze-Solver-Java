@@ -11,7 +11,8 @@ public class Task3 {
 	static EV3LargeRegulatedMotor Right;
 	public static void main(String [] args)
 	{
-		int alpha=0, distance= 100, radius= 5;
+		int alpha=0, distance= 100; 
+	    double radius= 2.8;
 		alpha = ComputeAngle(distance, radius);
 		forward(alpha);	
 			
@@ -19,9 +20,9 @@ public class Task3 {
 	}
 	
 	
-	public static int ComputeAngle( int distance, int radius)
+	public static int ComputeAngle( int distance, double radius)
 	{
-		int alpha = (distance/radius)*360;
+		int alpha = (int) ((distance/radius)*360);
 		alpha = 3*(alpha);
 		LCD.drawString("alpha = "+ alpha, 3,3);
 		return alpha;
