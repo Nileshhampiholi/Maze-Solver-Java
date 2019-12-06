@@ -21,33 +21,29 @@ public class Task3_3
 	
 	public static void main(String[] args) 
 	{
-	   int threshould1 = 10, threshould2 = 5, threshould3 = 2 , alpha, distance, radius =3;
+	   double threshould = 6.0,  distance=0.0; 
+	   distance= computeDistance(distanceSensor);
+	   if(distance> threshould)
+	   {
+		   forward(500);
+	   }
 	   while(Button.ESCAPE.isUp())
 	   {
-		 distance= (int)	computeDistance(distanceSensor);
-		 LCD.drawString("Distance="+ distance+ "cm", 1,1);
+		 distance= computeDistance(distanceSensor);
+		 LCD.drawString("Distance="+ (int)distance+ "cm", 1,1);
+		
 		 Delay.msDelay(200);
-		 alpha = computeAngle(distance,radius);
-		 if (distance>threshould1)
-		 {
-			  forward(alpha,1000);
-		 	  Delay.msDelay(500);
-		      //break;
-		 }
-		 else if (distance<threshould2)
-		 {
-		      forward(alpha,100);
-		      Delay.msDelay(500);
-		      //break;
-		 }
-		 else if (distance<threshould3)
+		 if (distance<threshould)
 		 {
 			  stop();
-		      Delay.msDelay(500);
+		      Delay.msDelay(1000);
 		      senseColor(colorSensor);
-		      Delay.msDelay(2000);
-		      Button.waitForAnyPress();
-		      //break;
+		      Delay.msDelay(5000);
+		      distance= computeDistance(distanceSensor);
+		      if (distance>threshould)
+		      {
+		    	  forward(500);
+		      }
 	     }     
 		      
 		 if(Button.ESCAPE.isDown())
@@ -56,7 +52,7 @@ public class Task3_3
 			  colorSensor.close();
 			  break;
 		 }
-		      
+		  LCD.clear();    
 	     
 	  }
 	  
@@ -70,12 +66,12 @@ public class Task3_3
 		 SensorMode colorString = colorSensor.getColorIDMode(); 
 		 colorID = new float[colorString.sampleSize()];
 		 colorString.fetchSample(colorID,0);
-		 LCD.drawString("color "+ String.valueOf(colorID[0]), 1, 4);
+		 //LCD.drawString("color "+ String.valueOf(colorID[0]), 1, 4);
 		 for(int i=0; i<=7; i++)
 		  {
 		  	if (colorID[0]==i)
 		  	{
-		  		LCD.drawString(x[i], 1, 5);
+		  		LCD.drawString(x[i], 4, 4);
 		  	}
 		  }
 		
@@ -87,23 +83,17 @@ public class Task3_3
 		right.stop();
 	}
 
-	private static void forward(int alpha, int x) {
+	private static void forward(int x) {
 		
 		left.setSpeed(x);
 		right.setSpeed(x);
-		left.rotate(alpha, true);
-		right.rotate(alpha,true);
-		Delay.msDelay(200);
-		//while ( left.isMoving() && right.isMoving())
-		//{
-		//	LCD.drawString("Is Moving", 3,4);
-		//	Delay.msDelay(500);
-		//}
+		left.backward();
+		right.backward();
 	}
 		
 
 
-	private static float computeDistance(EV3UltrasonicSensor distanceSensor) {
+	private static double computeDistance(EV3UltrasonicSensor distanceSensor) {
 		
 		float s[];
 		SampleProvider distance = distanceSensor.getDistanceMode();
@@ -112,13 +102,4 @@ public class Task3_3
 	    return (s[0]*100);   		
 	}
 	
-	public static int computeAngle( int distance, double radius)
-	{
-		int alpha = (int) ((distance/radius)*360);
-		alpha = 3*(alpha);
-		LCD.drawString("alpha = "+ alpha, 3,3);
-		return alpha;
-		
-	}
-
 }
