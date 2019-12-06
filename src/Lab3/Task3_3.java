@@ -59,7 +59,7 @@ public class Task3_3
 	 
     }
 
-	private static void senseColor( EV3ColorSensor colorSensor) {
+	public static void senseColor( EV3ColorSensor colorSensor) {
 		
 		 float colorID[];
 		 String x[] = {"NONE", "BLACK","BLUE", "GREEN","YELLOW","RED", "WHITE","BROWN"};
@@ -77,13 +77,13 @@ public class Task3_3
 		
 	}
 
-	private static void stop() {
+	public static void stop() {
 		
 		left.stop();
 		right.stop();
 	}
 
-	private static void forward(int x) {
+	public static void forward(int x) {
 		
 		left.setSpeed(x);
 		right.setSpeed(x);
@@ -93,7 +93,7 @@ public class Task3_3
 		
 
 
-	private static double computeDistance(EV3UltrasonicSensor distanceSensor) {
+	public static double computeDistance(EV3UltrasonicSensor distanceSensor) {
 		
 		float s[];
 		SampleProvider distance = distanceSensor.getDistanceMode();

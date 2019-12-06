@@ -34,7 +34,7 @@ public class Task3_4 {
 		
 	}
 
-		private static void turnLeft(int alpha, int x) {
+		public static void turnLeft(int alpha, int x) {
 			
 			left.setSpeed(x);
 			right.setSpeed(x);

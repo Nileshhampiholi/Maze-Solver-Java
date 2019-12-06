@@ -25,7 +25,7 @@ public class Task3_2 {
 		}
 	}
 
-	private static float computeDistance(EV3UltrasonicSensor distanceSensor) {
+	public static float computeDistance(EV3UltrasonicSensor distanceSensor) {
 		
 		float s[];
 		SampleProvider distance = distanceSensor.getDistanceMode();
