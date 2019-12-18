@@ -1,0 +1,6 @@
+violated:
+- indentation
+- speaking names (e.g. X, instance)
+- constant naming
+bonus points: 1
+notes:
