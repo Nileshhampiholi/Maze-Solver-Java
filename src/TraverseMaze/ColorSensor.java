@@ -11,10 +11,9 @@ public class ColorSensor {
 	
 	private  EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S1);
 	private  int colorString;
-	private  final int X=3 , Y= 3;
 	
 	public String senseColor() {
-		
+		final int X=3 , Y= 3;
 		while (Button.ESCAPE.isUp()){
 			Delay.msDelay(1000);
 			colorString = colorSensor.getColorID();

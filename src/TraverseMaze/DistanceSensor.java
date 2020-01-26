@@ -7,9 +7,9 @@ import lejos.robotics.SampleProvider;
 public class DistanceSensor {
 
 	private EV3UltrasonicSensor distanceSensor= new EV3UltrasonicSensor(SensorPort.S4);
-	private float d[];
 
 	public int computeDistance() {
+	    float d[];
 		SampleProvider distance = distanceSensor.getDistanceMode();
 		d = new float[distance.sampleSize()];
 		distance.fetchSample(d, 0);

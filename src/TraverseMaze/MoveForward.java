@@ -9,7 +9,7 @@ public class MoveForward implements Movement {
 	private final int SPEED =700;
 	private final double WHEEL_RADIUS = 2.8;
 
-	public void forward(double distanceToCover) {
+	public void forward(double distanceToCover) {   // moves forward for specified distance in centimeters
 		motorAngle =((int) ( distanceToCover / WHEEL_RADIUS)*360);
 		LCD.drawString("angle= "+motorAngle, 3, 1);
 		setSpeed(SPEED);
@@ -20,7 +20,7 @@ public class MoveForward implements Movement {
 		}
 	}
 	
-	public void forward() {
+	public void forward() { // just moves forward 
 		Turn.leftMotor.synchronizeWith( new EV3LargeRegulatedMotor[] {Turn.rightMotor});
 		Turn.leftMotor.startSynchronization();
 		Turn.leftMotor.backward();
@@ -28,7 +28,7 @@ public class MoveForward implements Movement {
 		Turn.leftMotor.endSynchronization();
 	}
 	
-	public void backward() {
+	public void backward() {  // moves backward until asked otherwise
 		Turn.leftMotor.synchronizeWith( new EV3LargeRegulatedMotor[] {Turn.rightMotor});
 		Turn.leftMotor.startSynchronization();
 		Turn.leftMotor.forward();

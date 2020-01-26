@@ -1,6 +1,5 @@
 package TraverseMaze;
 
-import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 import lejos.hardware.port.MotorPort;
@@ -14,8 +13,8 @@ public class Turn implements Movement {
 	private final int SPEED=50, RADIUS_OF_TURNING =61, GEAR_RATIO = 3, WHEEL_RADIUS= 28, MAX_ERROR =30 , MIN_ERROR = 10 ; 
     GyroscopeSensor gyroscopeSensor = new  GyroscopeSensor();
 	
-	public void turnForGivenAngle(int inputAngle) {
-		while(Button.ESCAPE.isUp()) {
+	public void turnForGivenAngle(int inputAngle) {   // turns to a given angle with respect to gyroscope angle  
+		while(true) {
 			gyroscopeAngle = gyroscopeSensor.computeGyroscopeAngle();
 			error = computeError(inputAngle);
 			LCD.drawString("x= " +error, 1, 4);
@@ -23,7 +22,7 @@ public class Turn implements Movement {
 			LCD.drawString("y= " +lenghtOfTurningPath, 1, 2);
 			motorAngle= computeMotorAngle();
 			LCD.drawString("z= " +motorAngle, 1, 3);
-			kp= computeKp(error);
+			kp= computeKp(error);   // resets speed as it comes close to reaching the required angle 
 			LCD.drawString("kp= " +kp, 1, 5);
 			setSpeed(SPEED*kp);
 			motorRotate(motorAngle);
@@ -59,7 +58,7 @@ public class Turn implements Movement {
 		return( inputAngle - gyroscopeAngle);
 	}
 
-	public int computeKp(int error) {
+	public int computeKp(int error) {   // method to compute gain value it goes on reducing as the required angle is reached
      if (error>0) {
     	 if ( error >MAX_ERROR)
  		{

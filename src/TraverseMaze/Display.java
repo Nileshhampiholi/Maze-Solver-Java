@@ -6,9 +6,9 @@ import lejos.hardware.lcd.LCD;
 public class Display {
 	
 	private final String COLOR_ARRAY[] = {"NONE", "BLACK","BLUE", "GREEN","YELLOW","RED", "WHITE","BROWN"};
-	private int cursorPosition=1;
 	
 	public String selectColorToDetect() {
+		int cursorPosition=1;
 		LCD.drawString("Menu",1,3);
 		
 		while(true) {
@@ -61,7 +61,7 @@ public class Display {
 	}
 
 	public void display ( int i){
-		
+	
 		LCD.clearDisplay();
 		LCD.drawString(" Menu (Select  color to be Detected) ",1,1);
 		if(i==1)
