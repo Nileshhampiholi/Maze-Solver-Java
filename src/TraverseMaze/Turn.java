@@ -36,7 +36,7 @@ public class Turn implements Movement {
 			}
 		}	
 	}
-
+	
 	public void setSpeed(int speed){
 		leftMotor.setSpeed(speed);
 		rightMotor.setSpeed(speed);

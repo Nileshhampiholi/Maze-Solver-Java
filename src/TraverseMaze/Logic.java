@@ -5,8 +5,8 @@ import lejos.utility.Delay;
 
 public class Logic {
 	private String colorToBeDetected, colorDetected;
-	private final int WALL_DISTANCE =12, SIDE_WALL_DISTAANCE =13 , TILE_DISTANCE =20, DELAY =500, LEFT_ANGLE = 90 , FRONT_ANGLE = 0, BACK_ANGLE = 180;
-	private final int TILE_LENGHT = 35, SPEED= 200, COLORED_WALL_DISTANCE =3;
+	private final int WALL_DISTANCE =12, SIDE_WALL_DISTAANCE =13, DELAY =500, LEFT_ANGLE = 90 , FRONT_ANGLE = 0, BACK_ANGLE = 180;
+	private final int TILE_LENGHT = 35, SPEED= 200, COLORED_WALL_DISTANCE =3 , TILE_DISTANCE =20;
 	private int distanceFront,distanceLeft, distanceRight, distanceBack,right,left,front, instance =0,detect ;
 
 	Buzzer buzz = new Buzzer();
@@ -219,3 +219,5 @@ public class Logic {
 		}
 	}
 }
+
+

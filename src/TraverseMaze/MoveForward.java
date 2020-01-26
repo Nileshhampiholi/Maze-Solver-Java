@@ -4,6 +4,7 @@ import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
 
 public class MoveForward implements Movement {
+	
 	private int motorAngle;
 	private final int SPEED =700;
 	private final double WHEEL_RADIUS = 2.8;
@@ -14,11 +15,11 @@ public class MoveForward implements Movement {
 		setSpeed(SPEED);
 		motorRotate(motorAngle);
 		while(Turn.leftMotor.isMoving() &&  Turn.rightMotor.isMoving()) {
-			
 			LCD.drawString(" is moving", 3, 4);
 			break;
 		}
 	}
+	
 	public void forward() {
 		Turn.leftMotor.synchronizeWith( new EV3LargeRegulatedMotor[] {Turn.rightMotor});
 		Turn.leftMotor.startSynchronization();
@@ -35,7 +36,6 @@ public class MoveForward implements Movement {
 		Turn.leftMotor.endSynchronization();
 	}
 
-
 	public void setSpeed( int speed) {
 		Turn.leftMotor.setSpeed(speed);
 		Turn.rightMotor.setSpeed(speed);
@@ -44,8 +44,8 @@ public class MoveForward implements Movement {
 	public void motorRotate(int motorAngle) {
 		Turn.leftMotor.rotate(-(motorAngle),true);
 		Turn.rightMotor.rotate(-(motorAngle),false);
-	
 	}
+	
 	public void stop() {
 		Turn.leftMotor.synchronizeWith( new EV3LargeRegulatedMotor[] {Turn.rightMotor});
 		Turn.leftMotor.startSynchronization();
@@ -53,6 +53,5 @@ public class MoveForward implements Movement {
 		Turn.rightMotor.stop();
 		Turn.leftMotor.endSynchronization();
 	}
-
 }
 
