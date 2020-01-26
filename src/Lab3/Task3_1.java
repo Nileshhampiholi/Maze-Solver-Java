@@ -4,46 +4,67 @@ import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3ColorSensor;
-import lejos.hardware.sensor.SensorMode;
+//import lejos.hardware.sensor.SensorMode;
+import lejos.robotics.Color;
 import lejos.utility.Delay;
 
 public class Task3_1 {
 	static float rgb [], c[];
-    static String x[] = {"NONE", "BLACK","BLUE", "GREEN","YELLOW","RED", "WHITE","BROWN"};
-		public static void main(String[] args)
-		{	
-	
-		  EV3ColorSensor colorSensor= new EV3ColorSensor(SensorPort.S1);
-		  SensorMode color = colorSensor.getRGBMode();
-		  SensorMode colorString = colorSensor.getColorIDMode();
-		  rgb = new float[color.sampleSize()];		
-		 	
-		  while (Button.ESCAPE.isUp())
-		  {
-			  color.fetchSample(rgb, 0);
-			  LCD.drawString("R= "+ rgb[0], 1, 1);
-			  LCD.drawString("G= "+ rgb[1], 1, 2);
-			  LCD.drawString("B=" + rgb[2], 1, 3);
-			  c = new float[colorString.sampleSize()];
-			  colorString.fetchSample(c,0);
-			  LCD.drawString("color "+ String.valueOf(c[0]), 1, 4);
-			  for(int i=0; i<=7; i++)
-			  {
-			  	if (c[0]==i)
-			  	{
-			  		LCD.drawString(x[i], 1, 5);
-			  	}
-			  }
-			 
-			  Delay.msDelay(1000);
-			  
-			  if(Button.ESCAPE.isDown())
-			  {
-				 colorSensor.close();
-			  }
-		  }
-		  
+	static String z[] = {"NONE", "BLACK","BLUE", "GREEN","YELLOW","RED", "WHITE","BROWN"};
+	static int x =2 ,y =2;
+	static  EV3ColorSensor colorSensor= new EV3ColorSensor(SensorPort.S1);
+	public static void main(String[] args)
+	{	
+		while(true) {
+			String s= detect();
+			LCD.drawString(s, 1, 1);
+			Delay.msDelay(500);
+		}  
+
+	}
+
+	public static String detect() {
+		
+		while (Button.ESCAPE.isUp())
+		{
+			int colorString = colorSensor.getColorID();
+			switch(colorString){
+			case Color.RED:
+				LCD.drawString("RED", x, y);
+				return "RED";
+
+			case Color.GREEN:
+				LCD.drawString("Green", x, y);
+				return "GREEN";
+
+			case Color.BLUE:
+				LCD.drawString("Blue", x, y);
+				return "BLUE";
+			case Color.BLACK:
+				LCD.drawString("Black", x, y);
+				return "BLACK";
+			case Color.BROWN:
+				LCD.drawString("Brown", x, y);
+				return "BROWN";
+			case Color.DARK_GRAY:
+				LCD.drawString("Dark Gray", x, y);
+				return "DARK_GRAY";
+			case Color.LIGHT_GRAY:
+				LCD.drawString("Light Gray", x, y);
+				return "LIGHT_GRAY";
+			case Color.ORANGE:
+				LCD.drawString("Orange", x, y);
+				return "ORANGE";
+			case Color.NONE:
+				LCD.drawString("None", x, y);
+				return "NONE";
+			case Color.YELLOW:
+				LCD.drawString("Yellow", x, y);
+				return "YELLOW";
+			}
 		}
+		return "none";  
+	}
 }
 
 

@@ -1,7 +1,8 @@
 package Lab2;
-import lejos.hardware.lcd.LCD;
+
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
+import lejos.hardware.lcd.LCD;
 
 
 public class Task2 
@@ -99,9 +100,7 @@ public class Task2
 		else {
 		LCD.drawString(s[i+1], 2, 4);}
 		  
-	}
-	
-	
+	}	
 	
 }
 

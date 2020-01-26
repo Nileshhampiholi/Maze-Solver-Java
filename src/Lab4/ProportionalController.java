@@ -82,7 +82,7 @@ public class ProportionalController{
 	   
    }
    
-   public static int computeKp(int error1) {
+   public static int computeKp(int error) {
 	   
 	 if ( error >30)
 	 {

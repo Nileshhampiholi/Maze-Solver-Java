@@ -1,5 +1,4 @@
 package Lab3;
-
 import lejos.hardware.Button;
 import lejos.hardware.lcd.LCD;
 import lejos.hardware.motor.EV3LargeRegulatedMotor;
@@ -8,7 +7,6 @@ import lejos.hardware.port.SensorPort;
 import lejos.hardware.sensor.EV3GyroSensor;
 import lejos.robotics.SampleProvider;
 import lejos.utility.Delay;
-
 public class Task3_4 {
 	public static EV3GyroSensor angleSensor = new EV3GyroSensor(SensorPort.S3);
 	public static float angle[];
@@ -28,20 +26,18 @@ public class Task3_4 {
 			{
 				angleSensor.close();
 				break;
-			}
-			
+			}	
 		}	
-		
 	}
 
-		public static void turnLeft(int alpha, int x) {
+		private static void turnLeft(int alpha, int x) {
+
 			
 			left.setSpeed(x);
 			right.setSpeed(x);
 			left.rotate(0, true);
 			right.rotate(alpha,true);
-			Delay.msDelay(200);
-		
+			Delay.msDelay(200);	
 	}
 	public static double computeAngle ( EV3GyroSensor angleSensor )
 	{
@@ -50,8 +46,7 @@ public class Task3_4 {
 		gyro.fetchSample(angle,0);
 		LCD.drawString("Angle="+ String.valueOf(angle[0]), 1, 1);
 		Delay.msDelay(500);
-		return angle[0];
-		
+		return angle[0];	
 	}
 	
 }
