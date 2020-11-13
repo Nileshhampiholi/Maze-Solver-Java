@@ -14,11 +14,11 @@ public class TurningWithGyroscope  {
 	private static EV3LargeRegulatedMotor leftMotor = new EV3LargeRegulatedMotor(MotorPort.B);
 	private static EV3LargeRegulatedMotor rightMotor = new EV3LargeRegulatedMotor(MotorPort.C);
 	private static EV3GyroSensor gyroscopeSensor = new EV3GyroSensor(SensorPort.S3);
-	private static int  motorAngle, lenghtOfTurningPath,error, gyroscopeAngle;
-	private static  int angularSpeed=50;
-	private  static int inputAngle= 90;
-	private static  int radiusOfTurning=61;
-	static float sample [];
+	private  static int  motorAngle, lenghtOfTurningPath,error, gyroscopeAngle;
+	private static int angularSpeed=50;
+	private static int inputAngle= 90;
+	private static int radiusOfTurning=61;
+static float sample [];
 	
 
 	public static void setSpeed(int angularSpeed){
@@ -51,7 +51,7 @@ public class TurningWithGyroscope  {
 		}
 	}
 
-	private  static int computeMotorAngle() {
+	private static  int computeMotorAngle() {
 		
 		return (int) ( lenghtOfTurningPath* 3 / 2.8);
 	}
@@ -70,7 +70,7 @@ public class TurningWithGyroscope  {
 		Delay.msDelay(500);
 		return (int) sample[0];	
 	}
-   public static int computeError() {
+   public  static int computeError() {
 	   return( inputAngle - gyroscopeAngle);
    }
    

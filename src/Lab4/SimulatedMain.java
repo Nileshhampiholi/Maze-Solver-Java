@@ -1,19 +1,18 @@
 package Lab4;
+
 import MazebotSim.MazebotSimulation;
-import TraverseMaze.*;
-//import Lab2.*;
+
 public class SimulatedMain {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		MazebotSimulation sim = new MazebotSimulation("Mazes/maze_1_3by4.png", 1.5,  1.13);
-		sim.setRobotPosition(0.150, 0.9, 0);
+		sim.setRobotPosition(0.525, 0.175, 90);
 		sim.startSimulation();
-		
-		
-		
-		MazeRobot.main(new String[0]);
+				
+		//Call to the old main method here
+		 TurningWithGyroscope .main(new String[0]);
 		sim.stopSimulation();
-
 
 	}
 

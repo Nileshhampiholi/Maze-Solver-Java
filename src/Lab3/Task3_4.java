@@ -14,7 +14,7 @@ public class Task3_4 {
 	static EV3LargeRegulatedMotor right=new EV3LargeRegulatedMotor(MotorPort.C);
 	public static void main(String[] args) {
 		double rotations,theta;
-		int alpha = 720;
+		int alpha = 180;
 		while(Button.ESCAPE.isUp())
 		{
 			theta =  computeAngle(angleSensor);

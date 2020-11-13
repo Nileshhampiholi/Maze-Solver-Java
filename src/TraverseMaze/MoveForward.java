@@ -6,7 +6,7 @@ import lejos.hardware.motor.EV3LargeRegulatedMotor;
 public class MoveForward implements Movement {
 	
 	private int motorAngle;
-	private final int SPEED =700;
+	private final int SPEED =500;
 	private final double WHEEL_RADIUS = 2.8;
 
 	public void forward(double distanceToCover) {   // moves forward for specified distance in centimeters

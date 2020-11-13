@@ -10,7 +10,7 @@ public class Turn implements Movement {
 	public static EV3LargeRegulatedMotor leftMotor = new EV3LargeRegulatedMotor(MotorPort.B);
 	public static EV3LargeRegulatedMotor rightMotor = new EV3LargeRegulatedMotor(MotorPort.C);
 	private int  motorAngle, lenghtOfTurningPath,error, gyroscopeAngle, kp;
-	private final int SPEED=50, RADIUS_OF_TURNING =61, GEAR_RATIO = 3, WHEEL_RADIUS= 28, MAX_ERROR =30 , MIN_ERROR = 10 ; 
+	private final int SPEED=100, RADIUS_OF_TURNING =61, GEAR_RATIO = 3, WHEEL_RADIUS= 28, MAX_ERROR =30 , MIN_ERROR = 10 ; 
     GyroscopeSensor gyroscopeSensor = new  GyroscopeSensor();
 	
 	public void turnForGivenAngle(int inputAngle) {   // turns to a given angle with respect to gyroscope angle  

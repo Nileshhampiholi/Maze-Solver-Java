@@ -11,7 +11,7 @@ public class Simulatedmain1 {
 		sim.startSimulation();
 				
 		//Call to the old main method here
-	    Task3_3.main(new String[0]);
+	    Task3_4.main(new String[0]);
 		sim.stopSimulation();
 
 	}

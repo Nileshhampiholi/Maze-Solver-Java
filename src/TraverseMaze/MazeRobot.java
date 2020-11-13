@@ -2,8 +2,10 @@ package TraverseMaze;
 
 public class MazeRobot {
 	public static void main(String[] args) {
-		Logic l = new Logic();
-	    l.traverse();
+		//Logic logic = new Logic();
+	    //logic.traverse();
+		Turn turn = new Turn();
+		turn.turnForGivenAngle(180);
 	}
 }
 	
