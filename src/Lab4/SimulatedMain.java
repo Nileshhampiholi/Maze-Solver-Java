@@ -11,7 +11,7 @@ public class SimulatedMain {
 		sim.startSimulation();
 				
 		//Call to the old main method here
-		 TurningWithGyroscope .main(new String[0]);
+		 MazeRobot.main(new String[0]);
 		sim.stopSimulation();
 
 	}
